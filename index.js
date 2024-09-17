@@ -18,13 +18,10 @@ const typeDefs = `#graphql
     }
 `;
 
-// Resolvers define how to fetch the types defined in your schema.
-// This resolver retrieves books from the "books" array above.
-const resolvers = {
-    Query: {
-        books: () => books,
-    },
-};
+const driver = neo4j.driver(
+    "bolt://localhost:7687",
+    neo4j.auth.basic("neo4j", "letmein")
+);
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
 
