@@ -20,7 +20,7 @@ const typeDefs = `#graphql
 
 const driver = neo4j.driver(
     "bolt://localhost:7687",
-    neo4j.auth.basic("neo4j", "letmein")
+    neo4j.auth.basic("neo4j", "letmein123")
 );
 
 const neoSchema = new Neo4jGraphQL({ typeDefs, driver });
